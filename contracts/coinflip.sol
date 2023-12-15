@@ -1,11 +1,10 @@
 // SPDX-License-Identifier : GPL-3.0
 pragma solidity >=0.4.22 <0.9.0;
 
-// import "@openzeppelin/contracts/utils/math/SafeMath.sol";
+import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 
 contract CoinFlip {
-    // using safeMath for uint256;
-
+    using safeMath for uint256;
     uint256 lastval;
     uint256 public win;
     uint256 fac =
@@ -29,10 +28,10 @@ contract CoinFlip {
         bool side = val == 1 ? true : false;
 
         if (side == guess) {
-            win++;
+            win.add(1);
             return true;
         } else {
-            win--;
+            win.sub(1);
             return false;
         }
     }
