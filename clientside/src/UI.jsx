@@ -167,8 +167,32 @@ function UI() {
             margin-top:-15px;
           }
 
-        
+          .uldiv{
+            margin-top:-100px;
+            display:flex;
+            padding-left:20px;
+            margin-left:400px;
+          }
+
+          .ul1{ 
+            list-decoration:none;
+            display:flex;
+            list-style:none;
+            gap:50px;
+            margin-left:570px;
+            color:white;
+            font-size:.79cm;
+            font-family: amatic sc;
+            margin-top:8px;
+          }
           
+          .l{
+            cursor:pointer;
+            letter-spacing:2px;
+          }
+          .l:hover{
+            color:grey;
+          }
         `}
       </style>
       <div className="complete">
@@ -176,8 +200,8 @@ function UI() {
           <h1 className="title">CO!NFL!P</h1>
           <div className="uldiv">
             <ul className="ul1">
-              <li className="li1">GUIDE</li>
-              <li className="li1">RULES</li>
+              <li className="l li1">GUIDE</li>
+              <li className="l li2">RULES</li>
             </ul>
           </div>
         </div>
