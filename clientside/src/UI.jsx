@@ -6,6 +6,12 @@ function UI() {
       console.log("Error opening wallet : ", err);
     });
   }
+
+  function flip() {
+    const coin = document.querySelector(".cimg");
+    coin.classList.toggle = "flipped";
+    console.log("Spining");
+  }
   return (
     <>
       <style>
@@ -42,11 +48,10 @@ function UI() {
           .addwal{
             font-family:Montserrat;
             font-size:.6cm;
-            margin-top:30px;
+            margin-top:20px;
             background-color:#301934;
             border:5px solid #947d3f;
             color:white;
-            // border-radius:px;
             padding:8px 20px;
             cursor:pointer;
           }
@@ -61,7 +66,7 @@ function UI() {
             background-color:#301934;
             // border-radius:10px;
             border:5px solid #947d3f;
-            margin-top:80px;
+            margin-top:50px;
             margin-left:43.5px;
           }
 
@@ -85,23 +90,96 @@ function UI() {
           }
 
           .imgblk{
-            height:300px;
-            width:300px;
+            height:270px;
+            width:270px;
             border:2px solid #947d3f;
             margin-top:30px;
             margin-left:300px;
+            border-radius:25px;
           }
           .cimg{
-            ehight:200px;
-            width:200px;
-            margin-top:50px;
+            ehight:160px;
+            width:160px;
+            margin-top:35px;
+            transform: rotateY(0deg); 
+            transition: transform 0.7s ease-in-out;
+          }
+          .flipped {
+            transform: rotateY(180deg);
           }
 
+          transition: transform 0.2s ease-in-out; 
+
+          // @keyframes spin {
+          //   from { transform: rotateY(0deg); }
+          //   to { transform: rotateY(360deg); }
+          // }
+
+          .status{
+            color:white;
+            font-family:montserrat;
+            font-size:.66cm;
+            margin-top:18px;
+            font-weight:400;
+            letter-spacing:2px;
+          }
+
+          .fb{
+            font-family:montserrat;
+            font-size:.6cm;
+            background-color:#947d3f;
+            color:white;
+            border:0px;
+            border-radius:4px;
+            margin-left:40px;
+            margin-top: 30px;
+            padding:3px 15px;
+            letter-spacing:2px;
+          }
+          .fb:hover{
+            background-color:brown;
+            cursor:pointer;
+          }
+          .head{
+            margin-left:-85px;
+          }
+
+          .earnblk{
+            height:150px;
+            width:200px;
+            background-color:#301934;
+            border:5px solid #947d3f;
+            margin-top:30px;
+            margin-left:43.5px;
+            font-size:.4cm;
+          }
+
+          .earns{
+            color:white;
+            font-family:Montserrat;
+            font-size:.56cm;
+            padding-top:6px;
+          }
+
+          .val{
+            color:white;
+            font-size:.6cm;
+            margin-top:-15px;
+          }
+
+        
+          
         `}
       </style>
       <div className="complete">
         <div className="firstblk">
           <h1 className="title">CO!NFL!P</h1>
+          <div className="uldiv">
+            <ul className="ul1">
+              <li className="li1">GUIDE</li>
+              <li className="li1">RULES</li>
+            </ul>
+          </div>
         </div>
         <div className="mid">
           <div className="as1">
@@ -112,11 +190,24 @@ function UI() {
               <h4 className="scoretit">YOUR SCORE</h4>
               <h5 className="sco">0</h5>
             </div>
+            <div className="earnblk">
+              <h4 className="earns">YOUR EARNINGS</h4>
+              <h5 className="val">
+                0 Sepol!aETH <br />
+              </h5>
+            </div>
           </div>
           <div className="secondblk">
             <div className="imgblk">
               <img src={coin} alt="" className="cimg" />
+              <h5 className="status">FL!P</h5>
             </div>
+            <button className="head fb" id="flip" onClick={flip}>
+              HEAD
+            </button>
+            <button className="tail fb" id="flip" onClick={flip}>
+              TA!L
+            </button>
           </div>
         </div>
       </div>
