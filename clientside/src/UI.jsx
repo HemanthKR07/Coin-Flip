@@ -40,7 +40,7 @@ function UI() {
 
           .as1{
             height:83vh;;
-            width:300px;
+            width:330px;
             margin-left:0px;
             background-color:white;
           }
@@ -84,31 +84,40 @@ function UI() {
 
           .secondblk{
             background-color:#301934;
-            width:170vh;
-            // color:white;
+            width:110vh;
 
           }
 
           .imgblk{
-            height:270px;
-            width:270px;
+            height:230px;
+            width:230px;
             border:2px solid #947d3f;
             margin-top:30px;
-            margin-left:300px;
+            margin-left:200px;
             border-radius:25px;
           }
           .cimg{
-            ehight:160px;
-            width:160px;
+            ehight:150px;
+            width:150px;
             margin-top:35px;
-            transform: rotateY(0deg); 
-            transition: transform 0.7s ease-in-out;
-          }
-          .flipped {
-            transform: rotateY(180deg);
+            // transform: rotateY(0deg); 
+            // transition: transform 0.7s ease-in-out;
           }
 
-          transition: transform 0.2s ease-in-out; 
+          .spin {
+            animation : spinkaro 0.7s linear infinite;
+          }
+
+          @keyframes spinkaro {
+            from{
+              transform : rotateY
+            }
+          }
+          // .flipped {
+          //   transform: rotateY(180deg);
+          // }
+
+          // transition: transform 0.2s ease-in-out; 
 
           // @keyframes spin {
           //   from { transform: rotateY(0deg); }
@@ -131,8 +140,8 @@ function UI() {
             color:white;
             border:0px;
             border-radius:4px;
-            margin-left:40px;
-            margin-top: 30px;
+            margin-left:30px;
+            margin-top:-10px;
             padding:3px 15px;
             letter-spacing:2px;
           }
@@ -140,8 +149,16 @@ function UI() {
             background-color:brown;
             cursor:pointer;
           }
+
+          .makeBet{
+            margin-top:0px;
+              font-family:chakra petch;
+              font-size:.6cm;
+              color:purple;
+          }
+          
           .head{
-            margin-left:-85px;
+            margin-left:-5px;
           }
 
           .earnblk{
@@ -150,7 +167,7 @@ function UI() {
             background-color:#301934;
             border:5px solid #947d3f;
             margin-top:30px;
-            margin-left:43.5px;
+            margin-left:53.5px;
             font-size:.4cm;
           }
 
@@ -179,7 +196,7 @@ function UI() {
             display:flex;
             list-style:none;
             gap:50px;
-            margin-left:570px;
+            margin-left:470px;
             color:white;
             font-size:.79cm;
             font-family: amatic sc;
@@ -193,6 +210,43 @@ function UI() {
           .l:hover{
             color:grey;
           }
+          
+          .youtxt{
+            font-family:bree serif;
+            font-size:1.2cm;
+            margin-top:10px;
+            margin-bottom:15px;
+            color:#990000;
+            text-decoration:underline;
+          }
+
+          .bettxt{
+            font-family:chakra petch;
+            font-size:.4cm;
+            color:grey;
+            width:300px;
+            margin-left:10px;
+            margin-top:20px;
+          }
+
+          .displayblk{
+            height:80px;
+            width:350px;
+            padding-top:0px;
+            margin-top:50px;
+            margin-left:140px;
+            background-color:white;
+            border:5px solid  #947d3f;
+            border-radius:5px;
+            
+          }
+
+          .distxt{
+            margin-top:13px;
+            font-size:1cm;
+            color: #301934;
+
+          }
         `}
       </style>
       <div className="complete">
@@ -200,38 +254,56 @@ function UI() {
           <h1 className="title">CO!NFL!P</h1>
           <div className="uldiv">
             <ul className="ul1">
-              <li className="l li1">GUIDE</li>
+              <li className="l li1">GU!DE</li>
               <li className="l li2">RULES</li>
+              <li className="l li3" onClick={openWallet}>
+                L!NK_ACC
+              </li>
             </ul>
           </div>
         </div>
         <div className="mid">
           <div className="as1">
-            <button className="addwal" onClick={openWallet}>
-              Add wallet
-            </button>
-            <div className="score">
-              <h4 className="scoretit">YOUR SCORE</h4>
-              <h5 className="sco">0</h5>
-            </div>
-            <div className="earnblk">
-              <h4 className="earns">YOUR EARNINGS</h4>
-              <h5 className="val">
-                0 Sepol!aETH <br />
-              </h5>
-            </div>
-          </div>
-          <div className="secondblk">
-            <div className="imgblk">
-              <img src={coin} alt="" className="cimg" />
-              <h5 className="status">FL!P</h5>
-            </div>
+            <h1 className="youtxt">YOU</h1>
+            <h4 className="makeBet">Select your option</h4>
             <button className="head fb" id="flip" onClick={flip}>
               HEAD
             </button>
             <button className="tail fb" id="flip" onClick={flip}>
               TA!L
             </button>
+            <h6 className="bettxt">
+              Round will start when you select the option !
+            </h6>
+            <div className="earnblk">
+              <h4 className="earns">YOUR EARN!NGS</h4>
+              <h5 className="val">
+                0 ETH <br />
+              </h5>
+            </div>
+          </div>
+          <div className="secondblk">
+            <div className="imgblk">
+              <img src={coin} alt="" className="cimg" />
+            </div>
+            <div className="displayblk">
+              <h1 className="distxt">LET'S__GO !!</h1>
+            </div>
+          </div>
+          <div className="as1">
+            <h1 className="youtxt">OPPONENT</h1>
+            <br />
+            <br />
+            <h4
+              className="makeBet"
+              style={{ fontSize: ".7cm", width: "250px", marginLeft: "35px" }}
+            >
+              Opponent will bet against your option
+            </h4>
+            <h6 className="bettxt" style={{ fontSize: ".57cm" }}>
+              For ex. if you bet on "Head", <br />
+              Opponent will bet on "Tail"
+            </h6>
           </div>
         </div>
       </div>
