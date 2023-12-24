@@ -1,5 +1,6 @@
 import React from "react";
 import coin from "./coin_1.png";
+
 function UI() {
   function openWallet() {
     window.ethereum.request({ method: "eth_requestAccounts" }).catch((err) => {
@@ -8,9 +9,9 @@ function UI() {
   }
 
   function flip() {
-    const coin = document.querySelector(".cimg");
-    coin.classList.toggle = "flipped";
-    console.log("Spining");
+    const closing_img = document.querySelector(".closing-image img");
+
+    closing_img.style.animation = "close-image .4s infinite forwards ;";
   }
   return (
     <>
@@ -95,34 +96,30 @@ function UI() {
             margin-top:30px;
             margin-left:200px;
             border-radius:25px;
+            overflow:hidden;
           }
+          
+          .closing-image img {
+            position: absolute;
+            top: 140px;
+            left: 563px;
+            width: 150px;
+            height: 150px;
+            clip-path: inset(0); /* Initial clip-path showing the full image */
+            animation: close-image .4s forwards ;
+          }
+          
+          @keyframes close-image {
+            0% { clip-path: inset(0); } /* Full image visible at the start */
+            50% { clip-path: inset(50% 0 50% 0); } /* 50% visible at the middle */
+            100% { clip-path: inset(0 0 0 0); } /* Image fully closed at the end */
+          }
+
           .cimg{
-            ehight:150px;
+            height:150px;
             width:150px;
             margin-top:35px;
-            // transform: rotateY(0deg); 
-            // transition: transform 0.7s ease-in-out;
           }
-
-          .spin {
-            animation : spinkaro 0.7s linear infinite;
-          }
-
-          @keyframes spinkaro {
-            from{
-              transform : rotateY
-            }
-          }
-          // .flipped {
-          //   transform: rotateY(180deg);
-          // }
-
-          // transition: transform 0.2s ease-in-out; 
-
-          // @keyframes spin {
-          //   from { transform: rotateY(0deg); }
-          //   to { transform: rotateY(360deg); }
-          // }
 
           .status{
             color:white;
@@ -141,7 +138,7 @@ function UI() {
             border:0px;
             border-radius:4px;
             margin-left:30px;
-            margin-top:-10px;
+            margin-top:10px;
             padding:3px 15px;
             letter-spacing:2px;
           }
@@ -247,6 +244,20 @@ function UI() {
             color: #301934;
 
           }
+
+          .betval{
+            height:20px;
+            width:130px;
+            margin-top:-10px;
+            margin-bottom:15px;
+            margin-left:-50px;
+          }
+          .eth{
+            margin-top:-38px;
+            font-size:.46cm;
+            position:absolute;
+            margin-left:216px;
+          }
         `}
       </style>
       <div className="complete">
@@ -265,7 +276,15 @@ function UI() {
         <div className="mid">
           <div className="as1">
             <h1 className="youtxt">YOU</h1>
-            <h4 className="makeBet">Select your option</h4>
+            <h4 className="makeBet">Bet : </h4>{" "}
+            <input
+              type="number"
+              name="bet"
+              className="betval"
+              placeholder="0.00"
+            />
+            <h6 className="eth">Ether</h6>
+            <br />
             <button className="head fb" id="flip" onClick={flip}>
               HEAD
             </button>
@@ -283,7 +302,7 @@ function UI() {
             </div>
           </div>
           <div className="secondblk">
-            <div className="imgblk">
+            <div className="imgblk closing-image">
               <img src={coin} alt="" className="cimg" />
             </div>
             <div className="displayblk">
