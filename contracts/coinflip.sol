@@ -2,14 +2,14 @@
 pragma solidity >=0.4.22 <0.9.0;
 
 contract coinFlip {
-    // address public owner; // Me - Contract deployer
+    address public owner; // Contract deployer
     uint256 public betval = 1e15; // The threshhold
-    uint256 public botval; // Amt bot has / bank
+    uint256 public botval;
 
-    // constructor() {
-    //     owner = msg.sender;
-    //     betval = 1e15; // 1 Ether = 1e18 wei
-    // }
+    constructor() payable {
+        owner = msg.sender;
+        botval = msg.value; // Bot balance
+    }
 
     event betPlaced(address indexed user, uint256 amt, bool prediction);
 
@@ -28,7 +28,7 @@ contract coinFlip {
 
         if (betOn == prediction) {
             // payable(msg.sender).transfer(msg.value * 2);
-            msg.sender.transfer(msg.value * 2);
+            payable(msg.sender).transfer(msg.value * 2);
         }
         botval += msg.value;
 
