@@ -1,10 +1,12 @@
-import "./App.css";
-import UI from "./UI";
+import "./Styles/App.css";
+import UI1 from "./UI1";
+// import UI from "./UI";
 
 function App() {
   return (
     <div className="App">
-      <UI />
+      <UI1 />
+      {/* <UI /> */}
     </div>
   );
 }
