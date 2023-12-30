@@ -1,24 +1,28 @@
-.body{
-    background-color:#2f1463;
+.uiBlk{
+    position: absolute;
 }
-
 .navBlock{
     height:150px;
     display:flex;
 }
 .title{
-    color:rgb(183, 160, 226);
-    margin-top:12px;
-    font-family:fasthand;
-    font-size:1.4cm;
-    letter-spacing: 6px;
-    margin-left:130px;
+    color:#2f1463;
+    margin-top:20px;
+    font-family:Rubik Scribble;
+    font-size:1.2cm;
+    letter-spacing: 4px;
+    margin-left:30px;
+    font-weight:900;
 }
 
 .img1{
-    height:90px;
-    width:90px;
-    margin-top:7px;
+    height:85px;
+    width:70px;
+    margin-top:3px;
     position: absolute;
-    margin-left:30px;
+    margin-left:15px;
+}
+
+.l1Blk{
+    display: flex;
 }
